@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Cube vertices
+
 cube = np.array([
     [0, 0, 0],
     [1, 0, 0],
@@ -14,7 +14,7 @@ cube = np.array([
     [0, 1, 1]
 ])
 
-# ------------------- Transformations -------------------
+
 def translate(points, tx, ty, tz):
     return points + [tx, ty, tz]
 
@@ -42,23 +42,21 @@ def rotate_z(points, angle):
            [0, 0, 1]]
     return points @ np.array(rot).T
 
-# ------------------- Plot function -------------------
 def plot_cube(original, transformed, label):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
 
-    # edges tell how to connect vertices
+  
     edges = [(0,1),(1,2),(2,3),(3,0),
              (4,5),(5,6),(6,7),(7,4),
              (0,4),(1,5),(2,6),(3,7)]
 
-    # original (blue)
+
     for a,b in edges:
         ax.plot([original[a,0], original[b,0]],
                 [original[a,1], original[b,1]],
                 [original[a,2], original[b,2]], "b-")
 
-    # transformed (red)
     for a,b in edges:
         ax.plot([transformed[a,0], transformed[b,0]],
                 [transformed[a,1], transformed[b,1]],
@@ -67,7 +65,6 @@ def plot_cube(original, transformed, label):
     ax.set_title("Blue: Original | Red: " + label)
     plt.show()
 
-# ------------------- Menu -------------------
 print("1. Translation\n2. Scaling\n3. Rotation X\n4. Rotation Y\n5. Rotation Z")
 choice = input("Enter your choice: ")
 
@@ -95,3 +92,4 @@ elif choice == "5":
     angle = float(input("Enter angle: "))
     result = rotate_z(cube, angle)
     plot_cube(cube, result, "Rotated Z")
+
