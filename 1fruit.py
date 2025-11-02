@@ -7,11 +7,11 @@ fig, ax = plt.subplots()
 ax.set_xlim(0, 10)
 ax.set_ylim(0, 10)
 
-# Tree
+
 tree_trunk = plt.Line2D([5, 5], [0, 4], color='brown', linewidth=3)
 tree_top = plt.Circle((5, 6), 2, color='green', alpha=0.5)
 
-# Fruit
+
 fruit = plt.Circle((5, 7), 0.3, color='red')
 
 ax.add_line(tree_trunk)
@@ -29,4 +29,5 @@ def update(frame):
     return fruit,
 
 ani = FuncAnimation(fig, update, frames=100, interval=50, blit=True)
+
 plt.show()
