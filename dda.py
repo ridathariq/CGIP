@@ -20,7 +20,6 @@ def dda_line(x1, y1, x2, y2):
     return x_coords, y_coords
 
 
-# Example usage
 x1, y1 = 10, 50
 x2, y2 = 90, 50
 
@@ -30,3 +29,4 @@ x_coords, y_coords = dda_line(x1, y1, x2, y2)
 plt.plot(x_coords, y_coords,'ko') 
 plt.axis("equal")
 plt.show()
+
