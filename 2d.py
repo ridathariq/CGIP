@@ -3,9 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-# -----------------------------
-# Transformation functions
-# -----------------------------
 def translate(points, tx, ty):
     return points + [tx, ty]
 
@@ -27,26 +24,21 @@ def reflect(points, axis='x'):
         mat = [[-1, 0], [0, -1]]
     return points @ np.array(mat).T
 
-# -----------------------------
-# Plotting function
-# -----------------------------
+
 def plot_shapes(original, transformed, label):
-    # Close the shape
+
     orig_x = np.append(original[:,0], original[0,0])
     orig_y = np.append(original[:,1], original[0,1])
     trans_x = np.append(transformed[:,0], transformed[0,0])
     trans_y = np.append(transformed[:,1], transformed[0,1])
 
-    # Plot
+
     plt.plot(orig_x, orig_y, 'b-', label="Original")
     plt.plot(trans_x, trans_y, 'r-', label=label)
     plt.legend()
     plt.gca().set_aspect('equal')
     plt.show()
 
-# -----------------------------
-# Main program
-# -----------------------------
 triangle = np.array([[1,1],[4,1],[2.5,4]])
 
 print("Choose transformation:")
@@ -79,3 +71,4 @@ elif choice == '4':
 
 else:
     print("Invalid choice!")
+
