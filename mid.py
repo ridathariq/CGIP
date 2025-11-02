@@ -6,7 +6,7 @@ def midpoint_circle(xc, yc, r):
     points = []
 
     while x <= y:
-        # 8-way symmetry
+
         points += [
             (xc + x, yc + y),
             (xc - x, yc + y),
@@ -27,11 +27,12 @@ def midpoint_circle(xc, yc, r):
 
     return points
 
-# --- Example usage ---
+
 xc, yc = 0, 0
 radius = 50
 circle_points = midpoint_circle(xc, yc, radius)
 
-plt.plot(*zip(*circle_points), 'bo')  # Plot all points
+plt.plot(*zip(*circle_points), 'bo') 
 plt.gca().set_aspect('equal')
 plt.show()
+
