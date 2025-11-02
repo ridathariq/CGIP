@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-# Region codes
+
 INSIDE, LEFT, RIGHT, BOTTOM, TOP = 0, 1, 2, 4, 8
 
 def compute_code(x, y, xmin, ymin, xmax, ymax):
@@ -14,9 +14,9 @@ def compute_code(x, y, xmin, ymin, xmax, ymax):
 def cohen_sutherland(x1, y1, x2, y2, xmin, ymin, xmax, ymax):
     code1, code2 = compute_code(x1, y1, xmin, ymin, xmax, ymax), compute_code(x2, y2, xmin, ymin, xmax, ymax)
     while True:
-        if not (code1 | code2):   # both inside
+        if not (code1 | code2): 
             return x1, y1, x2, y2
-        elif code1 & code2:       # both outside same region
+        elif code1 & code2:      
             return None
         else:
             code_out = code1 or code2
@@ -34,7 +34,7 @@ def cohen_sutherland(x1, y1, x2, y2, xmin, ymin, xmax, ymax):
             else:
                 x2, y2, code2 = x, y, compute_code(x, y, xmin, ymin, xmax, ymax)
 
-# ---------------- Example -----------------
+
 xmin, ymin, xmax, ymax = 1, 1, 8, 6
 x1, y1, x2, y2 = 0, 5, 10, 2
 
@@ -51,3 +51,4 @@ plt.legend()
 plt.title("Cohen–Sutherland Line Clipping (Simplified)")
 plt.grid(True)
 plt.show()
+
