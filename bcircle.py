@@ -25,8 +25,9 @@ def bresenham_circle(xc, yc, r):
 
     return points
 
-# Draw the circle
+
 circle = bresenham_circle(0, 0, 50)
 plt.plot(*zip(*circle), 'bo') 
 plt.gca().set_aspect('equal')
 plt.show()
+
