@@ -23,11 +23,6 @@ def update(frame):
     return earth,
 
 
-
-
-
-
-
-
 ani = FuncAnimation(fig, update, frames=range(400), interval = 30, blit = True)
+
 plt.show()
